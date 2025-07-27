@@ -9,7 +9,7 @@ public class PowerOfTwoMaxHeap {
         if (powerExponent < 0) {
             throw new IllegalArgumentException("Power exponent must be non-negative.");
         }
-        this.childrenPerNode = 1 << powerExponent; // 2^powerExponent
+        this.childrenPerNode = 1 << powerExponent;
         this.heap = new ArrayList<>();
     }
 
@@ -73,7 +73,6 @@ public class PowerOfTwoMaxHeap {
         heap.set(j, tmp);
     }
 
-    // Optional: for testing or debugging
     public ArrayList<Integer> toList() {
         return new ArrayList<>(heap);
     }
