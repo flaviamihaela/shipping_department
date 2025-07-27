@@ -51,28 +51,6 @@ The system processes shipping data from three CSV files:
 2. **Compile Java**: `javac PowerOfTwoMaxHeap.java` to compile the heap implementation
 3. **Process Data**: The system automatically handles data transformation and storage
 
-## Technical Features
-
-- **Data Normalization**: Converts raw CSV data into normalized database schema
-- **Error Handling**: Robust error checking and validation
-- **Scalability**: Modular design supports multiple data sources and processing modes
-- **Performance**: Optimized data structures for efficient operations
-
-## File Structure
-
-```
-shipping-department-walmart/
-├── data/                          # CSV data files
-│   ├── shipping_data_0.csv
-│   ├── shipping_data_1.csv
-│   └── shipping_data_2.csv
-├── DB_org.py                      # Main database processing script
-├── PowerOfTwoMaxHeap.java         # Custom heap implementation
-├── shipment_database.db           # SQLite database
-├── ERD.txt                        # Database schema design
-├── UMLdiagram.txt                 # System architecture
-└── README.md                      # This file
-```
 
 ## Requirements
 
