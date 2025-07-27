@@ -1,0 +1,48 @@
++------------------+
+| <<interface>>    |
+| ModeStrategy     |
++------------------+
+| +process(DataPoint, DatabaseStrategy): void |
++------------------+
+
+        ▲
+        |
++------------------+       +---------------------+       +---------------------+
+| DumpMode         |       | PassthroughMode     |       | ValidateMode        |
++------------------+       +---------------------+       +---------------------+
+| +process(dp, db): void | | +process(dp, db): void |   | +process(dp, db): void |
++------------------+       +---------------------+       +---------------------+
+
+────────────────────────────────────────────────────────────────────────────
+
++----------------------+
+| <<interface>>        |
+| DatabaseStrategy     |
++----------------------+
+| +connect(): void     |
+| +insert(DataPoint): void |
+| +validate(DataPoint): boolean |
++----------------------+
+
+        ▲
+        |
++---------------------+   +---------------------+   +---------------------+
+| PostgresDatabase    |   | RedisDatabase       |   | ElasticDatabase     |
++---------------------+   +---------------------+   +---------------------+
+| +connect(): void    |   | +connect(): void    |   | +connect(): void    |
+| +insert(dp): void   |   | +insert(dp): void   |   | +insert(dp): void   |
+| +validate(dp): bool |   | +validate(dp): bool |   | +validate(dp): bool |
++---------------------+   +---------------------+   +---------------------+
+
+────────────────────────────────────────────────────────────────────────────
+
++-------------------------+
+| DataProcessor           |
++-------------------------+
+| -mode: ModeStrategy     |
+| -database: DatabaseStrategy |
++-------------------------+
+| +configure(modeId: ModeIdentifier, dbId: DatabaseIdentifier): void |
+| +process(dp: DataPoint): void |
++-------------------------+
+
